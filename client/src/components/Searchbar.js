@@ -1,8 +1,20 @@
-const Searchbar = () => {
-  const getInputValue = (event) => {
-    const userValue = event.target.value;
+import React, { useState } from 'react';
 
+const Searchbar = () => {
+  const [input, setInput] = useState('');
+
+  const handleChange = (event) => {
+    const userValue = event.target.value;
+    setInput(userValue);
     console.log(userValue);
+  };
+
+  const handleClick = (event) => {
+    event.preventDefault();
+
+    console.log('Input:', input);
+
+    setInput('');
   };
 
   return (
@@ -10,8 +22,11 @@ const Searchbar = () => {
       <input
         type='text'
         placeholder='Enter something'
-        onChange={getInputValue}
+        onChange={handleChange}
+        value={input}
       />
+
+      <button onClick={handleClick}>Submit</button>
     </div>
   );
 };
