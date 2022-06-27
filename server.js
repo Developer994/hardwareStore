@@ -3,8 +3,10 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import toolRoutes from '../hardwareStore/routes/tools.js';
 import cors from 'cors';
+import dotenv from 'dotenv';
 
 const app = express();
+dotenv.config();
 
 app.use(cors());
 
@@ -12,13 +14,10 @@ app.use(bodyParser.json());
 
 app.use('/tools', toolRoutes);
 
-const CONNECTION_URL =
-  'mongodb+srv://Rezonator:Rezonator123@cluster0.mzep7.mongodb.net/?retryWrites=true&w=majority';
-
 const PORT = process.env.PORT || 4000;
 
 mongoose
-  .connect(CONNECTION_URL, {
+  .connect(process.env.CONNECTION_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
