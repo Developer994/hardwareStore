@@ -1,51 +1,58 @@
 import express from 'express';
-import { v4 as uuidv4 } from 'uuid';
-
 const router = express.Router();
+import Tools from '../models/postTools.js';
 
-let tools = [];
-
-// To get all tools:
-router.get('/', (req, res) => {
-  res.send(tools);
+router.get('/', async (req, res) => {
+  try {
+    const tools = await Tools.find();
+    res.json(tools);
+  } catch (err) {
+    res.send('Error' + err);
+  }
 });
 
-// To create a new tool:
-router.post('/', (req, res) => {
-  const tool = req.body;
-
-  tools.push({ ...tool, id: uuidv4() });
-
-  res.send(`A new tool with the name ${tool.toolName} added to the database!`);
+router.post('/', async (req, res) => {
+  const tools = new Tools({
+    brand: req.body.brand,
+    toolName: req.body.toolName,
+  });
+  try {
+    const t1 = await tools.save();
+    res.json(t1);
+  } catch (error) {
+    res.send('Error');
+  }
 });
 
-// To get a tool by id
-router.get('/:id', (req, res) => {
-  const { id } = req.params;
-
-  const foundTool = tools.find((tool) => tool.id === id);
-  res.send(foundTool);
+router.get('/:id', async (req, res) => {
+  try {
+    const tool = await Tools.findById(req.params.id);
+    res.json(tool);
+  } catch (err) {
+    res.send('Error' + err);
+  }
 });
 
-// To delete a tool by id
-router.delete('/:id', (req, res) => {
-  const { id } = req.params;
-
-  tools = tools.filter((tool) => tool.id !== id);
-
-  res.send(`The tool with id ${id} has been deleted from the database.`);
+router.patch('/:id', async (req, res) => {
+  try {
+    const tool = await Tools.findById(req.params.id);
+    tool.brand = req.body.brand;
+    const t1 = await tool.save();
+    res.json(t1);
+  } catch (err) {
+    res.status(404).send('Sorry, cant send that');
+  }
 });
 
-// To update a tool by id
-router.patch(':/id', (req, res) => {
-  const { id } = req.params;
-  const { toolName } = req.body;
-
-  const tool = tools.find((tool) => tool.id === id);
-
-  if (toolName) tool.toolName = toolName;
-
-  res.send(`Tool with the id ${id} has been updated.`);
+router.delete('/:id', async (req, res) => {
+  try {
+    const tool = await Tools.findById(req.params.id);
+    tool.brand = req.body.brand;
+    const t1 = await tool.remove();
+    res.send(`Tool with brand name ${tool.brand} has been removed!`);
+  } catch (err) {
+    res.status(404).send('Sorry, cant send that');
+  }
 });
 
 export default router;
