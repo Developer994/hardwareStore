@@ -19,14 +19,12 @@ function Searchbar() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch(
-          `https://api.giphy.com/v1/gifs/search?api_key=Z60bAfNVYHWngrK2POOW9P9vHXqvPk3B&q=${query}&limit=25&offset=0&rating=g&lang=en`
-        );
+        const response = await fetch(`http://localhost:4000/tools/?q=${query}`);
         const json = await response.json();
         console.log({ json });
         setResults(
-          json.data.map((item) => {
-            return item.images.preview.mp4;
+          json.map((item) => {
+            return item.toolName;
           })
         );
       } catch (error) {}
@@ -51,9 +49,17 @@ function Searchbar() {
           <button type='submit'>Submit</button>
         </form>
         <br />
-        {results.map((item) => (
-          <video autoPlay loop key={item} src={item} />
-        ))}
+        {results
+          .filter((item) => {
+            if (query === '') {
+              return item;
+            } else if (item.toLowerCase().includes(query.toLowerCase())) {
+              return item;
+            }
+          })
+          .map((item, id) => (
+            <h3 key={id}>{item}</h3>
+          ))}
       </div>
     </Fragment>
   );
