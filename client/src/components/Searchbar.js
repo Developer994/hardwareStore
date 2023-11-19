@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Searchbar() {
   const [input, setInput] = useState('');
@@ -24,7 +24,7 @@ function Searchbar() {
         console.log({ json });
         setResults(
           json.map((item) => {
-            return item.toolName;
+            return item;
           })
         );
       } catch (error) {}
@@ -36,32 +36,37 @@ function Searchbar() {
   }, [query]);
 
   return (
-    <Fragment>
-      <div>
-        <form onSubmit={onSubmit}>
-          <input
-            type='text'
-            placeholder='Enter something'
-            onChange={handleChange}
-            value={input}
-          />
-
-          <button type='submit'>Submit</button>
-        </form>
-        <br />
-        {results
-          .filter((item) => {
-            if (query === '') {
-              return item;
-            } else if (item.toLowerCase().includes(query.toLowerCase())) {
-              return item;
-            }
-          })
-          .map((item, id) => (
-            <h3 key={id}>{item}</h3>
-          ))}
-      </div>
-    </Fragment>
+    <div>
+      <form onSubmit={onSubmit}>
+        <input
+          type='text'
+          placeholder='Enter something'
+          onChange={handleChange}
+          value={input}
+        />
+        <button type='submit'>Submit</button>
+      </form>
+      <br />
+      {results
+        .filter((item) => {
+          if (query === '') {
+            return item;
+          } else if (
+            item.toolName.toLowerCase().includes(query.toLowerCase()) ||
+            item.brand.toLowerCase().includes(query.toLowerCase())
+          ) {
+            return item;
+          }
+        })
+        .map((item, id) => (
+          <div key={id}>
+            <h1>{item.toolName}</h1>
+            <h3>{item.brand}</h3>
+            <h5>{item.price}</h5>
+            <button>add to cart</button>
+          </div>
+        ))}
+    </div>
   );
 }
 

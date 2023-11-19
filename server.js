@@ -1,7 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
-import toolRoutes from '../hardwareStore/routes/tools.js';
+import toolRouter from '../hardwareStore/routes/tools.js';
 import cors from 'cors';
 import dotenv from 'dotenv';
 
@@ -10,9 +10,11 @@ dotenv.config();
 
 app.use(cors());
 
+app.use(express.json());
+
 app.use(bodyParser.json());
 
-app.use('/tools', toolRoutes);
+app.use('/tools', toolRouter);
 
 const PORT = process.env.PORT || 4000;
 
@@ -22,9 +24,13 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() =>
-    app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
+    app.listen(PORT, () => {
+      console.log(`Server started on port ${PORT}`);
+    })
   )
-  .catch((error) => console.log(error.message));
+  .catch((error) => {
+    console.log(error.message);
+  });
 
 const con = mongoose.connection;
 
