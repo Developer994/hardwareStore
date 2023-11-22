@@ -51,6 +51,14 @@ export default function Navbar() {
         <Link to='/Contact' className='menuItem' onClick={burger_class}>
           Contact
         </Link>
+        <div className='credentials'>
+          <Link to='/Login' className='credentialItem' onClick={burger_class}>
+            Login
+          </Link>
+          <Link to='/Signup' className='credentialItem' onClick={burger_class}>
+            Signup
+          </Link>
+        </div>
       </div>
     </>
   );
