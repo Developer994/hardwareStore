@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 
 app.use('/tools', toolRouter);
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 3000;
 
 mongoose
   .connect(process.env.CONNECTION_URL, {

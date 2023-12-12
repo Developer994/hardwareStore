@@ -1,6 +1,6 @@
 import express from 'express';
 const router = express.Router();
-import PostTool from '../models/postTools.js';
+import PostTool from '../models/PostTools.js';
 
 router.get('/', async (req, res) => {
   try {

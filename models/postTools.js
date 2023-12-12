@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 const postSchema = mongoose.Schema({
   brand: { type: String, required: true },
   toolName: { type: String, required: true },
-  price: { type: String, required: false },
+  price: { type: String },
 });
 
 // const PostTool = mongoose.model('PostTool', postSchema);

@@ -7,6 +7,7 @@ body {
 }
 
 .nav {
+  /* position: absolute; */
   height: 50px;
   background-color: #333;
   color: white;
@@ -82,11 +83,12 @@ body {
   /* ----- sliding menu ----- */
   /* clicked */
   .menu {
-    float: right;
+    position: absolute;
+    left: 60%;
     width: 40%;
     height: 12rem;
     background-color: #3b3b3b;
-    z-index: -1;
+    z-index: 6;
   }
   .menuItem {
     position: relative;

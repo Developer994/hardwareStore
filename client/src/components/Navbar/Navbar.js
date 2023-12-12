@@ -20,12 +20,21 @@ export default function Navbar() {
     }
   };
 
+  const navHomeHandler = () => {
+    if (burger_class === 'burger-bar clicked') {
+      setBurger_class('burger-bar unclicked');
+      setMenuStat('menu hidden');
+    }
+  };
+
   return (
     <>
       <nav className='nav'>
-        <Link to='/' onClick={burger_class}>
-          Hardware Store
-        </Link>
+        <div onClick={navHomeHandler}>
+          <Link to='/' onClick={() => burger_class}>
+            Hardware Store
+          </Link>
+        </div>
         <ul>
           <li>
             <Link to='/Cart' className='navItem'>
@@ -44,18 +53,26 @@ export default function Navbar() {
           <div className={burger_class}></div>
         </div>
       </nav>
-      <div className={menuStat}>
-        <Link to='/Cart' className='menuItem' onClick={burger_class}>
+      <div className={menuStat} onClick={menuHandler}>
+        <Link to='/Cart' className='menuItem' onClick={() => burger_class}>
           Cart
         </Link>
-        <Link to='/Contact' className='menuItem' onClick={burger_class}>
+        <Link to='/Contact' className='menuItem' onClick={() => burger_class}>
           Contact
         </Link>
         <div className='credentials'>
-          <Link to='/Login' className='credentialItem' onClick={burger_class}>
+          <Link
+            to='/Login'
+            className='credentialItem'
+            onClick={() => burger_class}
+          >
             Login
           </Link>
-          <Link to='/Signup' className='credentialItem' onClick={burger_class}>
+          <Link
+            to='/Signup'
+            className='credentialItem'
+            onClick={() => burger_class}
+          >
             Signup
           </Link>
         </div>

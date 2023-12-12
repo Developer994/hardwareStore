@@ -1,14 +1,14 @@
-import Searchbar from '../../components/Searchbar';
-import Navbar from '../../components/Navbar/Navbar';
+import Searchbar from '../../components/Searchbar/Searchbar';
+import Carousel from '../../components/Carousel/Carousel';
 
 // styles
 import './Home.css';
 
 function Home() {
   return (
-    <div className='container'>
-      Search for tools
+    <div className='home'>
       <Searchbar />
+      <Carousel />
     </div>
   );
 }
