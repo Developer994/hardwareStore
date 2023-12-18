@@ -109,12 +109,21 @@ body {
     text-decoration: none;
     color: white;
   }
-  .hidden {
+
+  .menu.active {
+    display: none;
+  }
+
+  .menu.inactive {
+    display: inherit;
+  }
+
+  /* .hidden {
     display: none;
   }
   .visible {
     display: inherit;
-  }
+  } */
   .burger-bar.clicked:nth-child(1) {
     transform: rotate(45deg) translate(0.62rem, 0.6rem);
   }

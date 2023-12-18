@@ -1,37 +1,23 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { useEffect } from 'react';
 
 // styles
 import './Navbar.css';
 
 export default function Navbar() {
-  const [burger_class, setBurger_class] = useState('burger-bar unclicked');
-  const [menuStat, setMenuStat] = useState('menu hidden');
-
-  const menuHandler = () => {
-    if (burger_class === 'burger-bar unclicked') {
-      setBurger_class('burger-bar clicked');
-      setMenuStat('menu visible');
-      console.log(burger_class);
-    } else {
-      setBurger_class('burger-bar unclicked');
-      setMenuStat('menu hidden');
-      console.log(burger_class);
-    }
-  };
-
-  const navHomeHandler = () => {
-    if (burger_class === 'burger-bar clicked') {
-      setBurger_class('burger-bar unclicked');
-      setMenuStat('menu hidden');
-    }
-  };
+  const [open, setOpen] = useState(false);
 
   return (
     <>
       <nav className='nav'>
-        <div onClick={navHomeHandler}>
-          <Link to='/' onClick={() => burger_class}>
+        <div>
+          <Link
+            to='/'
+            onClick={() => {
+              if (open) setOpen(!open);
+            }}
+          >
             Hardware Store
           </Link>
         </div>
@@ -47,31 +33,51 @@ export default function Navbar() {
             </Link>
           </li>
         </ul>
-        <div className='hamburgerMenu' onClick={menuHandler}>
-          <div className={burger_class}></div>
-          <div className={burger_class}></div>
-          <div className={burger_class}></div>
+        <div
+          className='hamburgerMenu'
+          onClick={() => {
+            setOpen(!open);
+          }}
+        >
+          <div className='burger-bar'></div> {/* The bars */}
+          <div className='burger-bar'></div>
+          <div className='burger-bar'></div>
         </div>
       </nav>
-      <div className={menuStat} onClick={menuHandler}>
-        <Link to='/Cart' className='menuItem' onClick={() => burger_class}>
+      <div className={`menu ${open ? 'inactive' : 'active'}`}>
+        <Link
+          to='/Cart'
+          className='menuItem'
+          onClick={() => {
+            setOpen(!open);
+          }}
+        >
           Cart
         </Link>
-        <Link to='/Contact' className='menuItem' onClick={() => burger_class}>
+        <Link
+          to='/Contact'
+          className='menuItem'
+          onClick={() => {
+            setOpen(!open);
+          }}
+        >
           Contact
         </Link>
-        <div className='credentials'>
-          <Link
-            to='/Login'
-            className='credentialItem'
-            onClick={() => burger_class}
-          >
+        <div
+          className='credentials'
+          onClick={() => {
+            setOpen(!open);
+          }}
+        >
+          <Link to='/Login' className='credentialItem'>
             Login
           </Link>
           <Link
             to='/Signup'
             className='credentialItem'
-            onClick={() => burger_class}
+            onClick={() => {
+              setOpen(!open);
+            }}
           >
             Signup
           </Link>
