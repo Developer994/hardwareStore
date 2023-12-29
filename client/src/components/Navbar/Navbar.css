@@ -64,9 +64,9 @@ body {
     padding-left: 0;
   }
   .hamburgerMenu {
+    padding-right: 2rem;
     visibility: visible;
     height: 100%;
-    width: 4rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -118,12 +118,6 @@ body {
     display: inherit;
   }
 
-  /* .hidden {
-    display: none;
-  }
-  .visible {
-    display: inherit;
-  } */
   .burger-bar.clicked:nth-child(1) {
     transform: rotate(45deg) translate(0.62rem, 0.6rem);
   }

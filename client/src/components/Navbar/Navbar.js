@@ -1,12 +1,38 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 // styles
 import './Navbar.css';
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false);
+  const [menuState, setMenuState] = useState(false);
+
+  let ref = useRef();
+
+  // useEffect(() => {
+  //   let handler = (e) => {
+  //     if (!ref.current.contains(e.target)) {
+  //       setMenuState(false);
+  //       console.log(ref.current);
+  //     }
+  //   };
+  //   document.addEventListener('mousedown', handler);
+
+  //   return () => {
+  //     document.removeEventListener('mousedown', handler);
+  //   };
+  // });
+
+  useEffect(() => {
+    const closeDropdown = (e) => {
+      if (!ref.current.contains(e.target)) {
+        setMenuState(false);
+      }
+    };
+    document.body.addEventListener('click', closeDropdown);
+
+    return () => document.body.removeEventListener('click', closeDropdown);
+  }, []);
 
   return (
     <>
@@ -15,7 +41,7 @@ export default function Navbar() {
           <Link
             to='/'
             onClick={() => {
-              if (open) setOpen(!open);
+              if (menuState) setMenuState(!menuState);
             }}
           >
             Hardware Store
@@ -36,20 +62,28 @@ export default function Navbar() {
         <div
           className='hamburgerMenu'
           onClick={() => {
-            setOpen(!open);
+            setMenuState((state) => !state);
           }}
+          ref={ref}
         >
-          <div className='burger-bar'></div> {/* The bars */}
-          <div className='burger-bar'></div>
-          <div className='burger-bar'></div>
+          {/* The bars */}
+          <div
+            className={`burger-bar ${menuState ? 'clicked' : 'unclicked'}`}
+          ></div>
+          <div
+            className={`burger-bar ${menuState ? 'clicked' : 'unclicked'}`}
+          ></div>
+          <div
+            className={`burger-bar ${menuState ? 'clicked' : 'unclicked'}`}
+          ></div>
         </div>
       </nav>
-      <div className={`menu ${open ? 'inactive' : 'active'}`}>
+      <div className={`menu ${menuState ? 'inactive' : 'active'}`}>
         <Link
           to='/Cart'
           className='menuItem'
           onClick={() => {
-            setOpen(!open);
+            setMenuState(!menuState);
           }}
         >
           Cart
@@ -58,7 +92,7 @@ export default function Navbar() {
           to='/Contact'
           className='menuItem'
           onClick={() => {
-            setOpen(!open);
+            setMenuState(!menuState);
           }}
         >
           Contact
@@ -66,7 +100,7 @@ export default function Navbar() {
         <div
           className='credentials'
           onClick={() => {
-            setOpen(!open);
+            setMenuState(!menuState);
           }}
         >
           <Link to='/Login' className='credentialItem'>
@@ -76,7 +110,7 @@ export default function Navbar() {
             to='/Signup'
             className='credentialItem'
             onClick={() => {
-              setOpen(!open);
+              setMenuState(!menuState);
             }}
           >
             Signup

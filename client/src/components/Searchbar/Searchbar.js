@@ -1,29 +1,30 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Searchbar.css';
 
 function Searchbar() {
-  const [input, setInput] = useState('');
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
-  const [catMenu, setCatMenu] = useState('catMenu hidden'); // The menu for the categories next to the search bar
-
-  const handleCategories = () => {
-    if (catMenu === 'catMenu hidden') {
-      setCatMenu('catMenu visible');
-    } else {
-      setCatMenu('catMenu hidden');
-    }
-  };
+  const [catMenuVisible, setCatMenuVisible] = useState(false); // The menu for the categories next to the search bar
 
   const handleChange = (event) => {
+    event.preventDefault();
     const userInput = event.target.value;
-    setInput(userInput);
+    setQuery(userInput);
   };
 
-  const onSubmit = (event) => {
-    event.preventDefault();
-    setQuery(input);
-  };
+  // useEffect for clicking outside of the categories menu
+  const ref = useRef();
+
+  useEffect(() => {
+    const closeCatMenu = (e) => {
+      if (!ref.current.contains(e.target)) {
+        setCatMenuVisible(false);
+      }
+    };
+
+    document.body.addEventListener('click', closeCatMenu);
+    return () => document.body.removeEventListener('click', closeCatMenu);
+  }, []);
 
   // When the query state changes ([query]), we then run the effect
   useEffect(() => {
@@ -31,13 +32,15 @@ function Searchbar() {
       try {
         const response = await fetch(`http://localhost:4000/tools/?q=${query}`);
         const json = await response.json();
-        console.log({ json });
+        // console.log({ json });
         setResults(
           json.map((item) => {
             return item;
           })
         );
-      } catch (error) {}
+      } catch (err) {
+        console.error(err.message);
+      }
     }
 
     if (query !== '') {
@@ -50,24 +53,28 @@ function Searchbar() {
     <div className='search'>
       {/* <div>Search for tools</div> */}
       <div>
-        <form onSubmit={onSubmit} className='searchForm' action='/search'>
+        <div className='searchForm' action='/search'>
           <div className='searchBar'>
             <input
               type='search'
               placeholder='Enter something'
               className='inputBar'
               onChange={handleChange}
-              value={input}
+              value={query}
             />
             <input type='submit' value='Search' className='searchbutton' />
             {/* <button type='submit' value='Search'>
             Submit
           </button> */}
           </div>
-          <div className='categories' onClick={handleCategories}>
+          <div
+            className='categories'
+            onClick={() => setCatMenuVisible((visible) => !visible)}
+            ref={ref}
+          >
             Categories
           </div>
-          <div className={catMenu}>
+          <div className={`catMenu ${catMenuVisible ? 'visible' : 'hidden'}`}>
             <li>Screw Drivers</li>
             <li>Hammers</li>
             <li>Drills</li>
@@ -76,9 +83,9 @@ function Searchbar() {
             <li>Paint</li>
             <li>Misc.</li>
           </div>
-        </form>
+        </div>
         <br />
-        <div className='searchResults'>
+        <div className={`searchResults`}>
           {results
             .filter((item) => {
               if (query === '') {
