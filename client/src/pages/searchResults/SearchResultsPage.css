@@ -1,0 +1,13 @@
+.searchResults {
+  width: 300px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  color: black;
+  background-color: white;
+  top: 50px;
+  /* left: 25%; */
+}

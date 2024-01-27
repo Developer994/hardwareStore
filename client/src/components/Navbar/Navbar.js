@@ -50,12 +50,14 @@ export default function Navbar() {
         <ul>
           <li>
             <Link to='/Cart' className='navItem'>
-              Cart
+              <span className='material-symbols-outlined' id='Cart'>
+                shopping_cart
+              </span>
             </Link>
           </li>
           <li>
-            <Link to='/Contact' className='navItem'>
-              Contact
+            <Link to='/Contact' className='navItem' id='Contact'>
+              <span className='material-symbols-outlined'>call</span>
             </Link>
           </li>
         </ul>

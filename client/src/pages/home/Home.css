@@ -1,4 +1,5 @@
 .home {
+  color: green;
   position: relative;
   display: flex;
   flex-direction: column;
