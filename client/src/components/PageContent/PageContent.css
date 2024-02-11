@@ -13,7 +13,6 @@ body {
   background: black;
   border-radius: 8px;
   overflow: hidden;
-
   height: 200px;
 }
 .pgContentContainer {
@@ -21,24 +20,154 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 95%;
-  height: 600px;
+  width: 100%;
+  height: 100%;
 }
-.adContainer {
-  margin: 0 0 50px 0;
-  width: 80%;
+.jumbotron {
+  position: relative;
+  margin: 50px 0;
+  width: 100%;
   background-color: red;
-  height: 350px;
+  height: 25rem;
 }
 
-.resultsCont {
-  width: 80%;
+.topItemsAndSLider {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  height: 300px;
+  width: 90%;
+}
+
+.topItemsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 300px;
+}
+
+.topItems {
+  display: flex;
+  justify-content: space-between;
+  /* background-color: red; */
+  width: 60%;
+  height: 300px;
+}
+
+.topItem {
+  background-color: blue;
+  width: 130px;
+  height: 130px;
+}
+
+.slider {
+  width: 200px;
+  height: 300px;
+}
+
+.topItemsCard {
+  border: 1px solid #fff;
+  background: black;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 300px;
+}
+
+.sliderContainer {
+  margin-top: 70px;
+  position: relative;
+  width: 90%;
   height: 100px;
 }
 
+.suggestions {
+  position: relative;
+  justify-content: space-evenly;
+  margin-top: 140px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.suggestion {
+  background-color: green;
+  margin: 1rem 0;
+  width: 20rem;
+  height: 15rem;
+}
+
+@media only screen and (max-width: 1000px) {
+  #hiddenBelow1050 {
+    visibility: hidden;
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+}
 @media only screen and (max-width: 800px) {
-  .adContainer {
+  .suggestion {
+    width: 15rem;
+  }
+  .topItemsAndSLider {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 450px;
+  }
+  .topItems {
+    width: 100%;
+  }
+  .slider {
+    margin-top: 10px;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  #hiddenBelow1050 {
+    visibility: hidden;
+    display: none;
+  }
+
+  .suggestion {
+    width: 10rem;
+    height: 12rem;
+  }
+  .slider {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .topItems {
+    width: 90%;
+  }
+  .topItem {
+    width: 110px;
+    height: 110px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .topItemsAndSLider {
+    width: 100%;
+  }
+  .topItems {
     width: 80%;
-    height: 350px;
+    height: 100%;
+  }
+  .topItem {
+    width: 90px;
+    height: 90px;
+  }
+  .topItemsContainer {
+    height: 250px;
+  }
+  .slider {
+    margin-top: 50px;
+    width: 70%;
   }
 }

@@ -10,13 +10,13 @@ export default function SearchResultsPage() {
 
   return (
     <>
-      <div className={`searchResults`}>
+      <div className={`searchResultsPg`}>
         {results
           .filter((item) => {
             if (searchResults === '') {
               return searchResults; // change to item to display all items
             } else if (
-              item.toolName
+              item.itemName
                 .toLowerCase()
                 .includes(searchResults.toLowerCase()) ||
               item.brand.toLowerCase().includes(searchResults.toLowerCase())
@@ -26,7 +26,7 @@ export default function SearchResultsPage() {
           })
           .map((item, id) => (
             <div key={id}>
-              <h1>{item.toolName}</h1>
+              <h1>{item.itemName}</h1>
               <h3>{item.brand}</h3>
               <h5>{item.price}</h5>
               <button>add to cart</button>

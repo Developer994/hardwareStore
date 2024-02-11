@@ -75,7 +75,7 @@ export default function Searchbar() {
                 if (query === '') {
                   return query; // change to item to display all items
                 } else if (
-                  item.toolName.toLowerCase().includes(query.toLowerCase()) ||
+                  item.itemName.toLowerCase().includes(query.toLowerCase()) ||
                   item.brand.toLowerCase().includes(query.toLowerCase())
                 ) {
                   return item;
@@ -84,7 +84,7 @@ export default function Searchbar() {
               .slice(0, 3)
               .map((item, id) => (
                 <div key={id}>
-                  <h1>{item.toolName}</h1>
+                  <h1>{item.itemName}</h1>
                   <h3>{item.brand}</h3>
                   <h5>{item.price}</h5>
                   <button>add to cart</button>

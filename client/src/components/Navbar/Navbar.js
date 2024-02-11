@@ -9,20 +9,6 @@ export default function Navbar() {
 
   let ref = useRef();
 
-  // useEffect(() => {
-  //   let handler = (e) => {
-  //     if (!ref.current.contains(e.target)) {
-  //       setMenuState(false);
-  //       console.log(ref.current);
-  //     }
-  //   };
-  //   document.addEventListener('mousedown', handler);
-
-  //   return () => {
-  //     document.removeEventListener('mousedown', handler);
-  //   };
-  // });
-
   useEffect(() => {
     const closeDropdown = (e) => {
       if (!ref.current.contains(e.target)) {
@@ -50,14 +36,25 @@ export default function Navbar() {
         <ul>
           <li>
             <Link to='/Cart' className='navItem'>
-              <span className='material-symbols-outlined' id='Cart'>
+              <span
+                className='material-symbols-outlined'
+                id='Cart'
+                alt='shopping_cart'
+              >
                 shopping_cart
               </span>
             </Link>
           </li>
           <li>
             <Link to='/Contact' className='navItem' id='Contact'>
-              <span className='material-symbols-outlined'>call</span>
+              <span className='material-symbols-outlined' alt='contact'>
+                call
+              </span>
+            </Link>
+          </li>
+          <li>
+            <Link to='/Signin' className='navItem' id='Contact' alt='Signin'>
+              <span className='material-symbols-outlined'>person</span>
             </Link>
           </li>
         </ul>

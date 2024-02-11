@@ -1,6 +1,6 @@
-.searchResults {
+.searchResultsPg {
   width: 300px;
-  position: absolute;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;

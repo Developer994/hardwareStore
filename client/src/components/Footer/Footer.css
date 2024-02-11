@@ -1,0 +1,19 @@
+/* hr {
+  color: grey;
+  background-color: grey;
+} */
+.main-footer {
+  color: grey;
+  background-color: rgb(21, 21, 21);
+  width: 100%;
+  margin-top: 150px;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-evenly;
+}

@@ -3,8 +3,12 @@ import { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ResultsContext } from './store/ResultsContext';
 
-// Pages
+// Components
 import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/Footer';
+
+// Pages
+
 import Home from './pages/home/Home';
 import Cart from './pages/cart/Cart';
 import Contact from './pages/contact/Contact';
@@ -42,33 +46,38 @@ function App() {
   }, []);
 
   return (
-    <div className='App'>
-      <ResultsContext.Provider
-        value={{
-          query,
-          setQuery,
-          results,
-          setResults,
-          handleChange,
-          handleClick,
-          searchResults,
-          slider1Items,
-        }}
-      >
-        <BrowserRouter>
-          <Navbar />
-          <Routes>
-            <Route path='/' element={<Home />}></Route>
-            <Route path='/Cart' element={<Cart />}></Route>
-            <Route path='/Contact' element={<Contact />}></Route>
-            <Route
-              path='/SearchResultsPage'
-              element={<SearchResultsPage />}
-            ></Route>
-          </Routes>
-        </BrowserRouter>
-      </ResultsContext.Provider>
-    </div>
+    <>
+      <div className='App'>
+        <ResultsContext.Provider
+          value={{
+            query,
+            setQuery,
+            results,
+            setResults,
+            handleChange,
+            handleClick,
+            searchResults,
+            slider1Items,
+          }}
+        >
+          <BrowserRouter>
+            <Navbar />
+            <Routes>
+              <Route path='/' element={<Home />}></Route>
+              <Route path='/Cart' element={<Cart />}></Route>
+              <Route path='/Contact' element={<Contact />}></Route>
+              <Route
+                path='/SearchResultsPage'
+                element={<SearchResultsPage />}
+              ></Route>
+            </Routes>
+          </BrowserRouter>
+        </ResultsContext.Provider>
+      </div>
+      <div className='footer'>
+        <Footer />
+      </div>
+    </>
   );
 }
 

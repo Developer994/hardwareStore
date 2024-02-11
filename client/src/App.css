@@ -1,6 +1,10 @@
 * {
   text-decoration: none;
 }
-.app {
+
+hr {
+  color: blue;
+}
+.App {
   height: 100%;
 }
