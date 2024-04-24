@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
   const tools = new PostTool({
     brand: req.body.brand,
-    toolName: req.body.toolName,
+    itemName: req.body.itemName,
     price: req.body.price,
   });
   try {
@@ -38,7 +38,7 @@ router.patch('/:id', async (req, res) => {
   try {
     const tool = await PostTool.findById(req.params.id);
     tool.brand = req.body.brand;
-    tool.toolName = req.body.toolName;
+    tool.itemName = req.body.itemName;
     tool.price = req.body.price;
     const t1 = await tool.save();
     res.json(t1);

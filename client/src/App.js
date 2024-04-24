@@ -23,15 +23,19 @@ function App() {
   const [slider1Items, setSlider1Items] = useState([]);
 
   const handleChange = (event) => {
-    event.preventDefault();
-    const userInput = event.target.value;
-    setQuery(userInput);
+    setQuery(event.target.value);
   };
 
-  const handleClick = () => {
+  const handleSubmit = () => {
     setSearchResults(query);
     setQuery('');
   };
+
+  // const handleKeyDown = (e) => {
+  //   if (e.key === 'Enter') {
+  //     setSearchResults(query);
+  //   }
+  // };
 
   // When the query state changes ([query]), we then run the effect
   useEffect(() => {
@@ -55,7 +59,7 @@ function App() {
             results,
             setResults,
             handleChange,
-            handleClick,
+            handleSubmit,
             searchResults,
             slider1Items,
           }}

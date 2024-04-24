@@ -6,7 +6,7 @@ import { ResultsContext } from '../../store/ResultsContext';
 import './Searchbar.css';
 
 export default function Searchbar() {
-  const { query, results, handleChange, handleClick } =
+  const { query, results, handleChange, handleSubmit } =
     useContext(ResultsContext);
   const [catMenuVisible, setCatMenuVisible] = useState(false); // The menu for the categories next to the search bar
 
@@ -28,11 +28,11 @@ export default function Searchbar() {
     <>
       <div className='search'>
         <div>
-          <div className='searchForm' action='/search'>
+          <form className='searchForm'>
             <div className='searchBarDiv'>
               <div className='searchBar'>
                 <input
-                  type='search'
+                  type='text'
                   placeholder='Enter something'
                   className='inputBar'
                   onChange={handleChange}
@@ -44,7 +44,7 @@ export default function Searchbar() {
                     type='submit'
                     to={query === '' ? '/' : '/SearchResultsPage'}
                     className='searchButton'
-                    onClick={handleClick}
+                    onClick={handleSubmit}
                   >
                     <span className='material-symbols-outlined'>search</span>
                   </Link>
@@ -67,7 +67,7 @@ export default function Searchbar() {
               <li>Paint</li>
               <li>Misc.</li>
             </div>
-          </div>
+          </form>
           <br />
           <div className={`searchResults`}>
             {results

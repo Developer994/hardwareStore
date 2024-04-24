@@ -9,7 +9,7 @@ export default function SearchResultsPage() {
   const { searchResults, results } = useContext(ResultsContext);
 
   return (
-    <>
+    <div className='searchResultsContainer'>
       <div className={`searchResultsPg`}>
         {results
           .filter((item) => {
@@ -33,6 +33,6 @@ export default function SearchResultsPage() {
             </div>
           ))}
       </div>
-    </>
+    </div>
   );
 }

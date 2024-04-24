@@ -8,6 +8,10 @@ body {
 .slick-list {
   margin: 0 -10px;
 }
+
+.slick-prev {
+  z-index: 2;
+}
 .card {
   border: 1px solid #fff;
   background: black;
@@ -27,8 +31,16 @@ body {
   position: relative;
   margin: 50px 0;
   width: 100%;
-  background-color: red;
   height: 25rem;
+}
+
+.jmbtronText {
+  position: absolute;
+  width: 200px;
+  color: black;
+  background-color: brown;
+  bottom: 400px;
+  left: 550px;
 }
 
 .topItemsAndSLider {
@@ -49,7 +61,6 @@ body {
 .topItems {
   display: flex;
   justify-content: space-between;
-  /* background-color: red; */
   width: 60%;
   height: 300px;
 }
@@ -73,7 +84,7 @@ body {
   height: 300px;
 }
 
-.sliderContainer {
+.freqBoughtSldrContainer {
   margin-top: 70px;
   position: relative;
   width: 90%;
@@ -91,10 +102,14 @@ body {
 }
 
 .suggestion {
-  background-color: green;
   margin: 1rem 0;
   width: 20rem;
   height: 15rem;
+}
+
+.suggestionImage {
+  width: 100%;
+  height: 100%;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -104,9 +119,10 @@ body {
   }
 }
 
-@media only screen and (min-width: 1000px) {
-}
 @media only screen and (max-width: 800px) {
+  .jumbotron {
+    height: 18rem;
+  }
   .suggestion {
     width: 15rem;
   }
@@ -152,6 +168,9 @@ body {
 }
 
 @media only screen and (max-width: 400px) {
+  .freqBoughtSldrContainer {
+    width: 85%;
+  }
   .topItemsAndSLider {
     width: 100%;
   }

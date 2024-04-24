@@ -11,8 +11,8 @@ export default function Footer() {
           <div className='col'>
             <h4>Hardware Store Ltd</h4>
             <ul className='list-unstyled'>
-              <li>36 Airport Rd</li> <li>Brampton, Ontario</li>
-              <li>L6W 4E3</li>
+              <li>XX Airport Rd</li> <li>Brampton, Ontario</li>
+              <li>L6V XXX</li>
             </ul>
           </div>
           <div className='col'>

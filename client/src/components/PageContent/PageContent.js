@@ -90,7 +90,14 @@ export default function PageContent() {
 
   return (
     <div className='pgContentContainer'>
-      <div className='jumbotron'></div>
+      <div className='jumbotron'>
+        <img
+          src={require('./images/jumbotron.jpg')}
+          alt=''
+          width='100%'
+          height='100%'
+        />
+      </div>
 
       <div className='topItemsAndSLider'>
         <div className='topItems'>
@@ -127,7 +134,7 @@ export default function PageContent() {
         </div>
       </div>
 
-      <div className='sliderContainer'>
+      <div className='freqBoughtSldrContainer'>
         <Slider {...settings}>
           {slider1Items.map((item, id) => (
             <div className='card' key={id}>
@@ -144,15 +151,53 @@ export default function PageContent() {
 
       <div className='suggestions'>
         <div className='suggestionsRow'>
-          <div className='suggestion'></div>
-          <div className='suggestion'></div>
-          <div className='suggestion'></div>
+          <div className='suggestion'>
+            <img
+              className='suggestionImage'
+              src={require('./images/paintSection.jpg')}
+              alt=''
+            />
+          </div>
+          <div className='suggestion'>
+            <img
+              className='suggestionImage'
+              src={require('./images/faucet.jpg')}
+              alt=''
+            />
+          </div>
+          <div className='suggestion'>
+            <img
+              className='suggestionImage'
+              src={require('./images/stove.jpg')}
+              alt=''
+            />
+          </div>
         </div>
 
         <div className='suggestionsRow'>
-          <div className='suggestion'></div>
-          <div className='suggestion'></div>
-          <div className='suggestion'></div>
+          <div className='suggestion'>
+            <img
+              className='suggestionImage'
+              src={require('./images/lawnMower.jpg')}
+              alt=''
+            />
+          </div>
+          <div className='suggestion'>
+            <img
+              className='suggestionImage'
+              src={require('./images/snowShovel.jpg')}
+              alt=''
+            />
+            snow accessories on sale
+          </div>
+          <div className='suggestion'>
+            <img
+              className='suggestionImage'
+              src={require('./images/bathroom.jpg')}
+              alt=''
+            />
+            Vanities and bath tubs on low prices
+          </div>
         </div>
       </div>
     </div>

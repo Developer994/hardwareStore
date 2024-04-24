@@ -86,7 +86,7 @@
   align-items: center;
   height: 300px;
   width: 40%;
-  top: 10%;
+  top: 3.5%;
   left: 55%;
   background-color: rgb(64, 57, 57);
   z-index: 5;
@@ -110,7 +110,7 @@ li {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 100px;
+    height: 80px;
   }
   .searchForm {
     align-items: center;
@@ -125,7 +125,7 @@ li {
   }
 
   .catMenu {
-    top: 15%;
+    top: 3.5%;
     left: 25%;
   }
 }
