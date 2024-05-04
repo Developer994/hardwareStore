@@ -31,12 +31,6 @@ function App() {
     setQuery('');
   };
 
-  // const handleKeyDown = (e) => {
-  //   if (e.key === 'Enter') {
-  //     setSearchResults(query);
-  //   }
-  // };
-
   // When the query state changes ([query]), we then run the effect
   useEffect(() => {
     fetch(`http://localhost:4000/tools`)
@@ -71,7 +65,7 @@ function App() {
               <Route path='/Cart' element={<Cart />}></Route>
               <Route path='/Contact' element={<Contact />}></Route>
               <Route
-                path='/SearchResultsPage'
+                path='/SearchResultsPage/:searchItem'
                 element={<SearchResultsPage />}
               ></Route>
             </Routes>

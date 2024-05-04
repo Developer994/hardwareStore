@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ResultsContext } from '../../store/ResultsContext';
 
 // Styles
@@ -9,9 +9,16 @@ export default function Searchbar() {
   const { query, results, handleChange, handleSubmit } =
     useContext(ResultsContext);
   const [catMenuVisible, setCatMenuVisible] = useState(false); // The menu for the categories next to the search bar
+  const [queryUrl, setQueryUrl] = useState('');
 
+  // const handleQueryUrl = () =>{
+  //   if (query !== results) {
+  //     setQueryUrl('/')
+  //   } else
+  // }
   // useEffect for clicking outside of the categories menu
   const ref = useRef();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const closeCatMenu = (e) => {
@@ -37,12 +44,22 @@ export default function Searchbar() {
                   className='inputBar'
                   onChange={handleChange}
                   value={query}
+                  onKeyDown={(event) => {
+                    if (event.key === 'Enter') {
+                      if (query.trim().length === 0) {
+                        event.preventDefault();
+                      } else {
+                        handleSubmit();
+                        navigate(`/SearchResultsPage/${query}`);
+                      }
+                    }
+                  }}
                 />
                 <div>
                   <Link
                     value='Search'
                     type='submit'
-                    to={query === '' ? '/' : '/SearchResultsPage'}
+                    to={query === '' ? '/' : `/SearchResultsPage/${query}`}
                     className='searchButton'
                     onClick={handleSubmit}
                   >

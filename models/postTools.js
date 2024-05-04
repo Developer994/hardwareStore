@@ -5,7 +5,7 @@ const postSchema = mongoose.Schema({
   brand: { type: String, required: true },
   itemName: { type: String, required: true },
   price: { type: String },
-  image: { type: ObjectId },
+  image: { type: ObjectId, required: true },
 });
 
 // const PostTool = mongoose.model('PostTool', postSchema);

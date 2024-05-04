@@ -7,6 +7,7 @@ import './SearchResultsPage.css';
 
 export default function SearchResultsPage() {
   const { searchResults, results } = useContext(ResultsContext);
+  console.log(results);
 
   return (
     <div className='searchResultsContainer'>
