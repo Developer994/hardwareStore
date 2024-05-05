@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.df814e8b.css",
+    "main.js": "/static/js/main.18f2c935.js",
+    "static/js/787.d5fa4d18.chunk.js": "/static/js/787.d5fa4d18.chunk.js",
+    "static/media/faucet.jpg": "/static/media/faucet.fde4b756f17641cbd999.jpg",
+    "static/media/snowShovel.jpg": "/static/media/snowShovel.15af7438fd6beab3f6d9.jpg",
+    "static/media/stove.jpg": "/static/media/stove.35c5a57f530474733d36.jpg",
+    "static/media/lawnMower.jpg": "/static/media/lawnMower.5a983cf4be1b87ae3fcd.jpg",
+    "static/media/bathroom.jpg": "/static/media/bathroom.f8b27fd38a86461dbeb6.jpg",
+    "static/media/paintSection.jpg": "/static/media/paintSection.92cb4a301636b36194e0.jpg",
+    "static/media/jumbotron.jpg": "/static/media/jumbotron.9696e32e0d2f3925be8c.jpg",
+    "static/media/slick.svg": "/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/index.html",
+    "main.df814e8b.css.map": "/static/css/main.df814e8b.css.map",
+    "main.18f2c935.js.map": "/static/js/main.18f2c935.js.map",
+    "787.d5fa4d18.chunk.js.map": "/static/js/787.d5fa4d18.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.df814e8b.css",
+    "static/js/main.18f2c935.js"
+  ]
+}
