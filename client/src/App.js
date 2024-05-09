@@ -55,6 +55,7 @@ function App() {
             handleChange,
             handleSubmit,
             searchResults,
+            setSearchResults,
             slider1Items,
           }}
         >

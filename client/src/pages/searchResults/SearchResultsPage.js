@@ -1,13 +1,19 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import './SearchResultsPage.css';
+import { useParams } from 'react-router-dom';
 import { ResultsContext } from '../../store/ResultsContext';
 
 // Styles
 import './SearchResultsPage.css';
 
 export default function SearchResultsPage() {
-  const { searchResults, results } = useContext(ResultsContext);
-  console.log(results);
+  const { searchResults, results, setSearchResults } =
+    useContext(ResultsContext);
+  let { searchItem } = useParams();
+
+  useEffect(() => {
+    setSearchResults(searchItem);
+  }, []);
 
   return (
     <div className='searchResultsContainer'>
