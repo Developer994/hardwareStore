@@ -9,7 +9,7 @@ export default function Searchbar() {
   const { query, results, handleChange, handleSubmit } =
     useContext(ResultsContext);
   const [catMenuVisible, setCatMenuVisible] = useState(false); // The menu for the categories next to the search bar
-  const [queryUrl, setQueryUrl] = useState('');
+  // const [queryUrl, setQueryUrl] = useState('');
 
   // const handleQueryUrl = () =>{
   //   if (query !== results) {
