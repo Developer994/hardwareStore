@@ -9,13 +9,7 @@ export default function Searchbar() {
   const { query, results, handleChange, handleSubmit } =
     useContext(ResultsContext);
   const [catMenuVisible, setCatMenuVisible] = useState(false); // The menu for the categories next to the search bar
-  // const [queryUrl, setQueryUrl] = useState('');
 
-  // const handleQueryUrl = () =>{
-  //   if (query !== results) {
-  //     setQueryUrl('/')
-  //   } else
-  // }
   // useEffect for clicking outside of the categories menu
   const ref = useRef();
   const navigate = useNavigate();
@@ -98,7 +92,6 @@ export default function Searchbar() {
                   return item;
                 }
               })
-              .slice(0, 3)
               .map((item, id) => (
                 <div key={id}>
                   <h1>{item.itemName}</h1>
@@ -106,7 +99,8 @@ export default function Searchbar() {
                   <h5>{item.price}</h5>
                   <button>add to cart</button>
                 </div>
-              ))}
+              ))
+              .slice(0, 3)}
           </div>
         </div>
       </div>{' '}
