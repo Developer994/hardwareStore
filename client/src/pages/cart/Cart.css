@@ -1,0 +1,21 @@
+.main-container {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.cart-container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin: 5% auto;
+  background-color: white;
+  width: 500px;
+  height: 600px;
+}
+
+.cart-title {
+  margin: 20px 0;
+  color: orange;
+}
