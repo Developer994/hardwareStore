@@ -37,6 +37,7 @@ router.get('/:id', async (req, res) => {
 router.patch('/:id', async (req, res) => {
   try {
     const tool = await PostTool.findById(req.params.id);
+    ``;
     tool.brand = req.body.brand;
     tool.itemName = req.body.itemName;
     tool.price = req.body.price;
