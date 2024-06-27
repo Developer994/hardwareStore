@@ -2,13 +2,13 @@ import Searchbar from '../../components/Searchbar/Searchbar';
 
 // styles
 import './Home.css';
-import PageContent from '../../components/PageContent/PageContent';
+import HomePageContent from '../../components/HomePageContent/HomePageContent';
 
 function Home() {
   return (
     <div className='home'>
       <Searchbar />
-      <PageContent />
+      <HomePageContent />
     </div>
   );
 }

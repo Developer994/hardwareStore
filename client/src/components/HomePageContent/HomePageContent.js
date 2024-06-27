@@ -5,9 +5,9 @@ import { ResultsContext } from '../../store/ResultsContext';
 // Styles
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import './PageContent.css';
+import './HomePageContent.css';
 
-export default function PageContent() {
+export default function HomePageContent() {
   const { slider1Items } = useContext(ResultsContext);
   const settings = {
     dots: true,

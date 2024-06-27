@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import './SearchResultsPage.css';
 import { useParams } from 'react-router-dom';
 import { ResultsContext } from '../../store/ResultsContext';
+import Searchbar from '../../components/Searchbar/Searchbar';
 
 // Styles
 import './SearchResultsPage.css';
@@ -45,6 +46,7 @@ export default function SearchResultsPage() {
 
   return (
     <div className='searchResultsContainer'>
+      <Searchbar />
       <div className={`searchResultsPg`}>{filteredResults()}</div>
     </div>
   );
