@@ -9,6 +9,7 @@ import './HomePageContent.css';
 
 export default function HomePageContent() {
   const { slider1Items } = useContext(ResultsContext);
+
   const settings = {
     dots: true,
     infinite: true,
@@ -101,27 +102,28 @@ export default function HomePageContent() {
 
       <div className='topItemsAndSLider'>
         <div className='topItems'>
-          <div className='topItemsContainer'>
-            <div className='topItem'></div>
-            <div className='topItem'></div>
-          </div>
-          <div className='topItemsContainer'>
-            <div className='topItem'></div>
-            <div className='topItem'></div>
-          </div>
-          <div className='topItemsContainer'>
-            <div className='topItem'></div>
-            <div className='topItem'></div>
-          </div>
-          <div className='topItemsContainer' id='hiddenBelow1050'>
-            <div className='topItem'></div>
-            <div className='topItem'></div>
+          <div className='topItemsTitle'>Top Items</div>
+          <div className='topItemContent'>
+            {slider1Items
+              .filter((item) => {
+                if (item.topItem) return item;
+              })
+              .map((item, id) => (
+                <div className='topItemsCard' key={id}>
+                  <h3>{item.brand}</h3>
+                  <div>{item.itemName}</div>
+                  <img className='topItemImg' src={item.image} />
+                  <div>
+                    {item.price} <button>Add to Cart</button>
+                  </div>
+                </div>
+              ))}
           </div>
         </div>
         <div className='slider'>
           <Slider {...settings2}>
             {slider1Items.map((item, id) => (
-              <div className='topItemsCard' key={id}>
+              <div className='topItemsSldrCard' key={id}>
                 <div className='card-top'>
                   <h1>{item.itemName}</h1>
                 </div>

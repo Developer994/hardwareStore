@@ -10,7 +10,7 @@ import './SearchResultsPage.css';
 export default function SearchResultsPage() {
   const { searchResults, results, setSearchResults } =
     useContext(ResultsContext);
-  let { searchItem } = useParams();
+  const { searchItem } = useParams();
 
   useEffect(() => {
     setSearchResults(searchItem);
@@ -32,6 +32,7 @@ export default function SearchResultsPage() {
         <div key={id}>
           <h1>{item.itemName}</h1>
           <h3>{item.brand}</h3>
+          <img className='searchedItemImg' src={item.image} alt='' />
           <h5>{item.price}</h5>
           <button>add to cart</button>
         </div>

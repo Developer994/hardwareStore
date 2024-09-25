@@ -34,15 +34,6 @@ body {
   height: 25rem;
 }
 
-.jmbtronText {
-  position: absolute;
-  width: 200px;
-  color: black;
-  background-color: brown;
-  bottom: 400px;
-  left: 550px;
-}
-
 .topItemsAndSLider {
   display: flex;
   justify-content: space-between;
@@ -51,24 +42,32 @@ body {
   width: 90%;
 }
 
-.topItemsContainer {
+.topItemContent {
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
-  height: 300px;
 }
 
 .topItems {
   display: flex;
-  justify-content: space-between;
-  width: 60%;
+  flex-direction: column;
+  width: 70%;
   height: 300px;
 }
 
-.topItem {
-  background-color: blue;
-  width: 130px;
-  height: 130px;
+.topItemsCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 250px;
+  width: 140px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 20px;
+}
+
+.topItemImg {
+  width: 100%;
+  height: 50px;
 }
 
 .slider {
@@ -76,7 +75,7 @@ body {
   height: 300px;
 }
 
-.topItemsCard {
+.topItemsSldrCard {
   border: 1px solid #fff;
   background: black;
   border-radius: 8px;
@@ -112,6 +111,26 @@ body {
   height: 100%;
 }
 
+@media only screen and (max-width: 1200px) {
+  .topItemsAndSLider {
+    flex-direction: column;
+    height: 350x;
+  }
+
+  .topItems {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+
+  .freqBoughtSldrContainer {
+    margin-top: 350px;
+  }
+
+  .slider {
+    align-self: center;
+    width: 500px;
+  }
+}
 @media only screen and (max-width: 1000px) {
   #hiddenBelow1050 {
     visibility: hidden;
