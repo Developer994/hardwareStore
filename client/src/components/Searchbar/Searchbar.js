@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ResultsContext } from '../../store/ResultsContext';
+import { ResultsContext } from '../../context/ResultsContext';
 
 // Styles
 import './Searchbar.css';

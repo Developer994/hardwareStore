@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import './SearchResultsPage.css';
 import { useParams } from 'react-router-dom';
-import { ResultsContext } from '../../store/ResultsContext';
+import { ResultsContext } from '../../context/ResultsContext';
 import Searchbar from '../../components/Searchbar/Searchbar';
 
 // Styles

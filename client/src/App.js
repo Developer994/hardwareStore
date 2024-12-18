@@ -1,7 +1,7 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { ResultsContext } from './store/ResultsContext';
+import { ResultsContext } from './context/ResultsContext';
 
 // Components
 import Navbar from './components/Navbar/Navbar';

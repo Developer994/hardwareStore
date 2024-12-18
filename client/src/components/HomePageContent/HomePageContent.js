@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import Slider from 'react-slick';
-import { ResultsContext } from '../../store/ResultsContext';
+import { ResultsContext } from '../../context/ResultsContext';
 
 // Styles
 import 'slick-carousel/slick/slick.css';
